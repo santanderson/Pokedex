@@ -1,6 +1,5 @@
 <script setup>
-import TheWelcome from '../components/TheWelcome.vue'
-
+import PkmList from '../components/PkmList.vue';
 </script>
 
 <template>
@@ -10,9 +9,8 @@ import TheWelcome from '../components/TheWelcome.vue'
     </div>
   </header>
 
-  <main>
-    <TheWelcome />
-  </main>
+  <PkmList/>
+
 </template>
 
 <style scoped>
