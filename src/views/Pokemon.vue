@@ -1,4 +1,5 @@
 <script setup>
+import { RouterLink } from 'vue-router'
 
 const pokemon = {
     name: "Zekrom",
@@ -34,6 +35,8 @@ const pokemon = {
     </main>
 
     <footer>
-        <button>Back</button>
+        <RouterLink to="/">
+            Back
+        </RouterLink>
     </footer>
 </template>
