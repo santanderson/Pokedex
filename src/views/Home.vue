@@ -1,5 +1,6 @@
 <script setup>
 import PkmList from '../components/PkmList.vue';
+import Load from '../components/Load.vue'
 </script>
 
 <template>
@@ -9,7 +10,7 @@ import PkmList from '../components/PkmList.vue';
     </div>
   </header>
 
-  <PkmList/>
+  <Load/>
 
 </template>
 
