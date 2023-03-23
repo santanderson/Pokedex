@@ -5,7 +5,14 @@ export const usePkmStore = defineStore('pkm', {
         pokemons: [],
         url: {
             nextUrl: '',
-            previousUrl: ''
+            previousUrl: '',
+            pokemonUrl: ''
+        },
+        details: {
+            name: '',
+            flavorText: '',
+            order: '',
+            sprite: ''
         },
         page: 0
     })

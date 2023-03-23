@@ -1,41 +1,43 @@
 <script setup>
 import { RouterLink } from 'vue-router'
 
-const pokemon = {
-    name: "Zekrom",
-    id: "644",
-    common: "Deep Black Pokémon",
-    description: "lorem",
-    types: ["dragon", "electric"]
-}
+const props = defineProps({
+    details: Object
+})
+
+const order = props.details.order
+
+if(order.toString().length === 1) props.details.order = `00${props.details.order}`
+if(order.toString().length === 2) props.details.order = `0${props.details.order}`
+
+console.log(props.details)
+
 </script>
 
 <template>
     <main>
         <div>
             <div class="pkmView">
-                <img/>
+                <img :src="props.details.sprite"/>
             </div>
             <div class="details">
                 <div>
-                    {{ pokemon.id }}
-                    {{ pokemon.name }}
+                    {{ props.details.order }}
+                    {{ props.details.name }}
                 </div>
-                {{ pokemon.common }}
                 <div class="types">
-                    {{ pokemon.types[0] }}
-                    {{ pokemon.types[1] }}
+                    <span v-for="types in props.details.types">{{ types }} </span>
                 </div>
             </div>
         </div>
 
-        <div class="description">
-            <p>{{ pokemon.description }}</p>
+        <div class="flavorText">
+            <p>{{ props.details.flavorText }}</p>
         </div>
     </main>
 
     <footer>
-        <RouterLink to="/">
+        <RouterLink to="/pokemon">
             Back
         </RouterLink>
     </footer>

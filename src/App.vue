@@ -8,8 +8,9 @@ const pkmStore = usePkmStore()
 const {pokemons} = storeToRefs(pkmStore)
 const {url} = storeToRefs(pkmStore)
 const {page} = storeToRefs(pkmStore)
+const {details} = storeToRefs(pkmStore)
 </script>
 
 <template>
-  <RouterView :pokemons="pokemons" :url="url" :page="page"/>
+  <RouterView :pokemons="pokemons" :url="url" :page="page" :details="details"/>
 </template>
