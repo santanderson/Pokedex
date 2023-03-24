@@ -5,23 +5,37 @@ import { ref } from 'vue';
 
 const props = defineProps({
     pokemons: Array,
-    url: Object
+    url: Object,
+    search: Object
 })
+
+const pkmName = ref(null)
 
 if(!props.pokemons[0]) router.push('/')
 
 function showDetails(e) {
     const pokemonLink = e.target.parentNode.classList[0]
     props.url.pokemonUrl = pokemonLink
-    console.log(props.url.pokemonUrl)
     router.push('/loadpkm')
+}
+
+function searchPokemon(e) {
+    e.preventDefault()
+    props.search.pkmName = pkmName.value
+
+    router.push('/')
 }
 
 </script>
 
 <template>
-    <button @click="router.push('/previous')">Previous</button>
-    <button @click="router.push('/next')">Next</button>
+    <button v-if="props.url.previousUrl" @click="router.push('/previous')">Previous</button>
+    <button v-if="props.url.nextUrl" @click="router.push('/next')">Next</button>
+
+    <form>
+        <input placeholder="search by name or id" v-model="pkmName" type="name"/>
+        <button @click="searchPokemon">Search</button>
+    </form>
 
     <main>
         <ul>

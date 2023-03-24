@@ -11,7 +11,7 @@ const props = defineProps({
 
 async function next() {
 
-    console.log(props.url.nextUrl)
+    if(!props.url.nextUrl) return router.push('/pokemon')
 
     axios.get(props.url.nextUrl).then(
         (res) => {

@@ -11,6 +11,8 @@ const props = defineProps({
 
 async function previous() {
 
+    if(!props.url.previousUrl) return router.push('/pokemon')
+
     axios.get(props.url.previousUrl).then(
         (res) => {
 

@@ -14,6 +14,9 @@ export const usePkmStore = defineStore('pkm', {
             order: '',
             sprite: ''
         },
+        search: {
+            pkmName: ''
+        },
         page: 0
     })
 })

@@ -12,26 +12,47 @@ const props = defineProps({
 async function load() {
 
     axios.get(props.url.pokemonUrl).then(
-        (res) => {
+        res => {
             const data = res.data
 
             props.details.name = data.name
-            props.details.flavorText = data.flavor_text_entries[0].flavor_text
+
+            if(data.flavor_text_entries[3]) {
+                props.details.flavorText = data.flavor_text_entries[3].flavor_text
+            } else if (data.flavor_text_entries[0]) {
+                props.details.flavorText = data.flavor_text_entries[0].flavor_text
+            } else {
+                props.details.flavorText = 'Pokemon data not yet registered!'
+            }
+
             props.details.order = data.id
 
             loadDetails()
         }
-    )
+    ).catch(error => {
+        window.alert('Non-existent pokémon, please try again!')
+        router.push('/pokemon')
+    })
 
 }
 
 async function loadDetails() {
     axios.get(`https://pokeapi.co/api/v2/pokemon/${props.details.order}`).then(
                 (res) => {
-                    props.details.sprite = res.data.sprites.versions['generation-iv'].platinum.front_default
+                
+                if(!res.data.sprites.versions['generation-v']['black-white'].animated.front_default) {
+                    props.details.sprite = res.data.sprites.other['official-artwork'].front_default
+                } else if(res.data.sprites.versions['generation-v']['black-white'].animated.front_default) { 
+                    props.details.sprite = res.data.sprites.versions['generation-v']['black-white'].animated.front_default
+                }
+                else {
+                    props.details.sprite = res.data.sprites.front_default
+                }
 
+                console.log(res.data)
                     router.push('/pokemon/details')
                 }
+
             )
 }
 load()
