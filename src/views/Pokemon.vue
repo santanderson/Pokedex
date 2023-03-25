@@ -15,15 +15,15 @@ console.log(props.details)
 </script>
 
 <template>
-    <main>
-        <div>
+    <main class="info">
+        <div class="infoContainer">
             <div class="pkmView">
                 <img :src="props.details.sprite"/>
             </div>
             <div class="details">
                 <div>
-                    {{ props.details.order }}
-                    {{ props.details.name }}
+                    <span>. {{ props.details.order }}</span>
+                    <span>{{ props.details.name }}</span>
                 </div>
                 <div class="types">
                     <span v-for="types in props.details.types">{{ types }} </span>

@@ -39,4 +39,6 @@ async function loading() {
 loading()
 </script>
 
-<template></template>
+<template>
+    loading
+</template>

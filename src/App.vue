@@ -5,13 +5,20 @@ import { usePkmStore } from './store/pkmStore';
 
 const pkmStore = usePkmStore()
 
-const {pokemons} = storeToRefs(pkmStore)
-const {url} = storeToRefs(pkmStore)
-const {page} = storeToRefs(pkmStore)
-const {details} = storeToRefs(pkmStore)
-const {search} = storeToRefs(pkmStore)
+const { pokemons } = storeToRefs(pkmStore)
+const { url } = storeToRefs(pkmStore)
+const { page } = storeToRefs(pkmStore)
+const { details } = storeToRefs(pkmStore)
+const { search } = storeToRefs(pkmStore)
+
+const props = defineProps({
+    pokemons: Array,
+    url: Object,
+    search: Object
+})
+
 </script>
 
 <template>
-  <RouterView :pokemons="pokemons" :url="url" :page="page" :details="details" :search="search"/>
+    <RouterView :pokemons="pokemons" :url="url" :page="page" :details="details" :search="search" />
 </template>

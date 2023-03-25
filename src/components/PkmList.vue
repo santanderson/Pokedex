@@ -29,21 +29,27 @@ function searchPokemon(e) {
 </script>
 
 <template>
-    <button v-if="props.url.previousUrl" @click="router.push('/previous')">Previous</button>
-    <button v-if="props.url.nextUrl" @click="router.push('/next')">Next</button>
-
-    <form>
-        <input placeholder="search by name or id" v-model="pkmName" type="name"/>
-        <button @click="searchPokemon">Search</button>
-    </form>
 
     <main>
+        <form>
+            <input placeholder="search by name or id" v-model="pkmName" type="name"/>
+            <button @click="searchPokemon">Search</button>
+        </form>
+
         <ul>
             <li v-for="pkm in props.pokemons">
                 <a @click="showDetails" :class="pkm.url">
+                    <span>001</span>
                     <span>{{ pkm.name }}</span>
                 </a>
             </li>
         </ul>
     </main>
+
+    <footer>
+        <div>
+            <button v-if="props.url.previousUrl" @click="router.push('/previous')">Previous</button>
+            <button v-if="props.url.nextUrl" @click="router.push('/next')">Next</button>
+        </div>
+    </footer>
 </template>

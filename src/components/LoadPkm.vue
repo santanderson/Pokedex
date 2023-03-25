@@ -59,5 +59,5 @@ load()
 </script>
 
 <template>
-ss
+loading
 </template>

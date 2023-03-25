@@ -1,5 +1,4 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Home from '../views/Home.vue'
 import Pokemon from '../views/Pokemon.vue'
 import PkmList from '../components/PkmList.vue'
 import Load from '../components/Load.vue'

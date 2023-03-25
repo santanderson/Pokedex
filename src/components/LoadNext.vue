@@ -35,5 +35,19 @@ next()
 </script>
 
 <template>
-ss
+    <main>
+        <form>
+            <input placeholder="search by name or id" v-model="pkmName" type="name"/>
+            <button @click="searchPokemon">Search</button>
+        </form>
+
+        loading
+    </main>
+
+    <footer>
+        <div>
+            <button v-if="props.url.previousUrl" @click="router.push('/previous')">Previous</button>
+            <button v-if="props.url.nextUrl" @click="router.push('/next')">Next</button>
+        </div>
+    </footer>
 </template>
