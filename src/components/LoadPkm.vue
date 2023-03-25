@@ -49,7 +49,15 @@ async function loadDetails() {
                     props.details.sprite = res.data.sprites.front_default
                 }
 
-                console.log(res.data)
+
+                props.details.types.splice(0, props.details.types.length)
+
+                for( let types of res.data.types) {
+                    props.details.types.push(types.type.name)
+                }
+
+                console.log(props.details.types)
+
                     router.push('/pokemon/details')
                 }
 

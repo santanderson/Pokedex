@@ -12,7 +12,8 @@ export const usePkmStore = defineStore('pkm', {
             name: '',
             flavorText: '',
             order: '',
-            sprite: ''
+            sprite: '',
+            types: []
         },
         search: {
             pkmName: ''
