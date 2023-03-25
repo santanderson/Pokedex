@@ -38,8 +38,21 @@ function searchPokemon(e) {
 
         <ul>
             <li v-for="pkm in props.pokemons">
+
                 <a @click="showDetails" :class="pkm.url">
-                    <span>001</span>
+
+                    <span v-if="pkm.url.split('https://pokeapi.co/api/v2/pokemon-species/')[1].split('/')[0].length === 1">
+                        00{{ pkm.url.split('https://pokeapi.co/api/v2/pokemon-species/')[1].split('/')[0] }}
+                    </span>
+
+                    <span v-if="pkm.url.split('https://pokeapi.co/api/v2/pokemon-species/')[1].split('/')[0].length === 2">
+                        0{{ pkm.url.split('https://pokeapi.co/api/v2/pokemon-species/')[1].split('/')[0] }}
+                    </span>
+
+                    <span v-if="pkm.url.split('https://pokeapi.co/api/v2/pokemon-species/')[1].split('/')[0].length === 3">
+                        {{  pkm.url.split('https://pokeapi.co/api/v2/pokemon-species/')[1].split('/')[0] }}
+                    </span>
+
                     <span>{{ pkm.name }}</span>
                 </a>
             </li>

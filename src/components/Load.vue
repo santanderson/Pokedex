@@ -12,7 +12,9 @@ const props = defineProps({
 async function loading() {
 
     if (!props.search.pkmName) {
-        axios.get('https://pokeapi.co/api/v2/pokemon-species/').then(
+        const url = 'https://pokeapi.co/api/v2/pokemon-species/'
+
+        axios.get(url).then(
             (res) => {
 
                 props.url.nextUrl = res.data.next;
